@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,6 +20,7 @@
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       font-family: Arial, Tahoma, sans-serif;
@@ -29,12 +30,19 @@
       color: var(--text);
       line-height: 1.7;
     }
+
     a { color: inherit; text-decoration: none; }
-    .container { width: min(1100px, 90%); margin: auto; }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
     header {
       border-bottom: 1px solid var(--border);
-      background: rgba(8,13,24,.92);
+      background: rgba(8, 13, 24, .92);
     }
+
     .nav {
       min-height: 76px;
       display: flex;
@@ -43,11 +51,29 @@
       gap: 18px;
       flex-wrap: wrap;
     }
-    .brand { font-size: 22px; font-weight: 800; letter-spacing: -.5px; }
-    .brand span { color: var(--blue); }
-    nav { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-    nav a { color: var(--muted); font-size: 14px; }
-    nav a:hover, .text-link:hover { color: var(--blue); }
+
+    .brand {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -.5px;
+    }
+
+    .brand span, h1 span { color: var(--blue); }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    nav a:hover { color: var(--blue); }
+
     button, .button {
       border: 1px solid var(--blue);
       background: var(--blue);
@@ -59,12 +85,15 @@
       font-size: 14px;
       display: inline-block;
     }
+
     .secondary {
       background: transparent;
       color: var(--text);
       border-color: var(--border);
     }
+
     .hero { padding: 100px 0 86px; }
+
     .eyebrow {
       color: var(--blue);
       text-transform: uppercase;
@@ -72,6 +101,7 @@
       font-size: 12px;
       font-weight: 700;
     }
+
     h1 {
       font-size: clamp(38px, 6vw, 70px);
       line-height: 1.12;
@@ -79,23 +109,62 @@
       max-width: 850px;
       margin: 20px 0;
     }
-    h1 span { color: var(--blue); }
-    .hero p { max-width: 700px; color: var(--muted); font-size: 18px; }
-    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+
+    .hero p {
+      max-width: 700px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
     section { padding: 65px 0; }
-    .section-heading { max-width: 700px; margin-bottom: 30px; }
-    h2 { font-size: 32px; margin: 0 0 12px; }
+
+    .section-heading {
+      max-width: 700px;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      font-size: 32px;
+      margin: 0 0 12px;
+    }
+
     .section-heading p, .muted { color: var(--muted); }
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 17px;
+    }
+
     .card {
       border: 1px solid var(--border);
       border-radius: 14px;
       padding: 24px;
       background: linear-gradient(145deg, #111d30, #0b1220);
     }
-    .card .symbol { color: var(--blue); font-size: 25px; }
-    .card h3 { margin: 12px 0 8px; font-size: 19px; }
-    .card p { color: var(--muted); font-size: 14px; }
+
+    .card .symbol {
+      color: var(--blue);
+      font-size: 25px;
+    }
+
+    .card h3 {
+      margin: 12px 0 8px;
+      font-size: 19px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
     .tag {
       display: inline-block;
       color: var(--blue);
@@ -104,23 +173,32 @@
       padding: 3px 10px;
       font-size: 11px;
     }
+
     .contact-panel {
       border: 1px solid var(--border);
       border-radius: 18px;
       padding: 32px;
       background: #0e1929;
     }
+
     footer {
       padding: 26px 0;
       border-top: 1px solid var(--border);
       color: var(--muted);
       font-size: 13px;
     }
-    .footer-row { display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
     [dir="rtl"] { text-align: right; }
     [dir="rtl"] h1 { letter-spacing: 0; }
     [dir="rtl"] nav { direction: rtl; }
-    [dir="rtl"] .actions { flex-direction: row; }
+
     @media (max-width: 760px) {
       .grid { grid-template-columns: 1fr; }
       .hero { padding: 65px 0; }
@@ -130,16 +208,37 @@
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="container nav">
       <a class="brand" href="#">Avin <span>AI</span> Lab</a>
+
       <nav aria-label="Main navigation">
-        <a href="#services" data-en="Services" data-fa="خدمات">Services</a>
-        <a href="#projects" data-en="Projects" data-fa="پروژه‌ها">Projects</a>
-        <a href="#research" data-en="Research" data-fa="پژوهش">Research</a>
-        <a href="#contact" data-en="Contact" data-fa="تماس">Contact</a>
-        <button id="languageButton" class="secondary" type="button" aria-label="Change language">فارسی</button>
+        <a href="#services"
+           data-en="Services"
+           data-fa="خدمات"
+           data-es="Servicios">Services</a>
+
+        <a href="#projects"
+           data-en="Projects"
+           data-fa="پروژه‌ها"
+           data-es="Proyectos">Projects</a>
+
+        <a href="#research"
+           data-en="Research"
+           data-fa="پژوهش"
+           data-es="Investigación">Research</a>
+
+        <a href="#contact"
+           data-en="Contact"
+           data-fa="تماس"
+           data-es="Contacto">Contact</a>
+
+        <button id="languageButton"
+                class="secondary"
+                type="button"
+                aria-label="Change language">فارسی</button>
       </nav>
     </div>
   </header>
@@ -147,12 +246,38 @@
   <main>
     <section class="hero">
       <div class="container">
-        <div class="eyebrow" data-en="Independent AI Engineering & Research" data-fa="مهندسی و پژوهش مستقل هوش مصنوعی">Independent AI Engineering &amp; Research</div>
-        <h1 data-en="Turning <span>Intelligence</span> into real-world impact." data-fa="تبدیل <span>هوش مصنوعی</span> به راهکارهای واقعی و کاربردی.">Turning <span>Intelligence</span> into real-world impact.</h1>
-        <p data-en="Avin AI Lab explores intelligent agents, reliability evaluation, automation, and practical software solutions for businesses." data-fa="آوین ای‌آی لب بر توسعه عامل‌های هوشمند، ارزیابی قابلیت اطمینان، خودکارسازی و راهکارهای نرم‌افزاری کاربردی برای کسب‌وکارها تمرکز دارد.">Avin AI Lab explores intelligent agents, reliability evaluation, automation, and practical software solutions for businesses.</p>
+        <div class="eyebrow"
+             data-en="Independent AI Engineering &amp; Research"
+             data-fa="مهندسی و پژوهش مستقل هوش مصنوعی"
+             data-es="Ingeniería e investigación independiente en IA">
+          Independent AI Engineering &amp; Research
+        </div>
+
+        <h1
+          data-en="Turning <span>Intelligence</span> into real-world impact."
+          data-fa="تبدیل <span>هوش مصنوعی</span> به راهکارهای واقعی و کاربردی."
+          data-es="Convertimos la <span>inteligencia</span> en impacto real.">
+          Turning <span>Intelligence</span> into real-world impact.
+        </h1>
+
+        <p
+          data-en="Avin AI Lab explores intelligent agents, reliability evaluation, automation, and practical software solutions for businesses."
+          data-fa="آوین ای‌آی لب بر توسعه عامل‌های هوشمند، ارزیابی قابلیت اطمینان، خودکارسازی و راهکارهای نرم‌افزاری کاربردی برای کسب‌وکارها تمرکز دارد."
+          data-es="Avin AI Lab desarrolla agentes inteligentes, evaluación de fiabilidad, automatización y soluciones de software prácticas para empresas.">
+          Avin AI Lab explores intelligent agents, reliability evaluation,
+          automation, and practical software solutions for businesses.
+        </p>
+
         <div class="actions">
-          <a class="button" href="#contact" data-en="Discuss a Project →" data-fa="درباره پروژه صحبت کنیم ←">Discuss a Project →</a>
-          <a class="button secondary" href="#projects" data-en="Explore Our Work" data-fa="مشاهده فعالیت‌ها">Explore Our Work</a>
+          <a class="button" href="#contact"
+             data-en="Discuss a Project →"
+             data-fa="درباره پروژه صحبت کنیم ←"
+             data-es="Hablemos de tu proyecto →">Discuss a Project →</a>
+
+          <a class="button secondary" href="#projects"
+             data-en="Explore Our Work"
+             data-fa="مشاهده فعالیت‌ها"
+             data-es="Descubre nuestro trabajo">Explore Our Work</a>
         </div>
       </div>
     </section>
@@ -160,28 +285,89 @@
     <section id="services">
       <div class="container">
         <div class="section-heading">
-          <div class="eyebrow" data-en="What We Do" data-fa="حوزه فعالیت">What We Do</div>
-          <h2 data-en="Practical AI. Measurable outcomes." data-fa="هوش مصنوعی کاربردی؛ نتایج قابل ارزیابی.">Practical AI. Measurable outcomes.</h2>
-          <p data-en="Focused technical work designed around real problems, transparent evaluation, and responsible implementation." data-fa="فعالیت فنی متمرکز بر مسائل واقعی، ارزیابی شفاف و پیاده‌سازی مسئولانه.">Focused technical work designed around real problems, transparent evaluation, and responsible implementation.</p>
+          <div class="eyebrow"
+               data-en="What We Do"
+               data-fa="حوزه فعالیت"
+               data-es="Qué hacemos">What We Do</div>
+
+          <h2
+            data-en="Practical AI. Measurable outcomes."
+            data-fa="هوش مصنوعی کاربردی؛ نتایج قابل ارزیابی."
+            data-es="IA práctica. Resultados medibles.">
+            Practical AI. Measurable outcomes.
+          </h2>
+
+          <p
+            data-en="Focused technical work designed around real problems, transparent evaluation, and responsible implementation."
+            data-fa="فعالیت فنی متمرکز بر مسائل واقعی، ارزیابی شفاف و پیاده‌سازی مسئولانه."
+            data-es="Trabajo técnico centrado en problemas reales, evaluación transparente e implementación responsable.">
+            Focused technical work designed around real problems,
+            transparent evaluation, and responsible implementation.
+          </p>
         </div>
+
         <div class="grid">
           <article class="card">
             <div class="symbol">◎</div>
-            <h3 data-en="AI Agent Reliability" data-fa="قابلیت اطمینان عامل‌های هوشمند">AI Agent Reliability</h3>
-            <p data-en="Controlled testing of retries, uncertain outcomes, duplicate side effects, and verification behavior." data-fa="آزمایش کنترل‌شده تلاش مجدد، نتایج نامشخص، اثرات تکراری و رفتارهای راستی‌آزمایی در عامل‌های هوشمند.">Controlled testing of retries, uncertain outcomes, duplicate side effects, and verification behavior.</p>
-            <span class="tag" data-en="Evaluation" data-fa="ارزیابی">Evaluation</span>
+            <h3
+              data-en="AI Agent Reliability"
+              data-fa="قابلیت اطمینان عامل‌های هوشمند"
+              data-es="Fiabilidad de agentes de IA">AI Agent Reliability</h3>
+
+            <p
+              data-en="Controlled testing of retries, uncertain outcomes, duplicate side effects, and verification behavior."
+              data-fa="آزمایش کنترل‌شده تلاش مجدد، نتایج نامشخص، اثرات تکراری و رفتارهای راستی‌آزمایی در عامل‌های هوشمند."
+              data-es="Pruebas controladas de reintentos, resultados inciertos, efectos duplicados y mecanismos de verificación.">
+              Controlled testing of retries, uncertain outcomes,
+              duplicate side effects, and verification behavior.
+            </p>
+
+            <span class="tag"
+                  data-en="Evaluation"
+                  data-fa="ارزیابی"
+                  data-es="Evaluación">Evaluation</span>
           </article>
+
           <article class="card">
             <div class="symbol">⌘</div>
-            <h3 data-en="AI Automation" data-fa="خودکارسازی هوشمند">AI Automation</h3>
-            <p data-en="Design and prototyping of assistants and workflows that help businesses handle repetitive tasks." data-fa="طراحی و نمونه‌سازی دستیارها و گردش‌کارهایی برای کمک به کسب‌وکارها در انجام وظایف تکراری.">Design and prototyping of assistants and workflows that help businesses handle repetitive tasks.</p>
-            <span class="tag" data-en="Engineering" data-fa="مهندسی">Engineering</span>
+            <h3
+              data-en="AI Automation"
+              data-fa="خودکارسازی هوشمند"
+              data-es="Automatización con IA">AI Automation</h3>
+
+            <p
+              data-en="Design and prototyping of assistants and workflows that help businesses handle repetitive tasks."
+              data-fa="طراحی و نمونه‌سازی دستیارها و گردش‌کارهایی برای کمک به کسب‌وکارها در انجام وظایف تکراری."
+              data-es="Diseño y creación de prototipos de asistentes y flujos de trabajo para automatizar tareas repetitivas.">
+              Design and prototyping of assistants and workflows that
+              help businesses handle repetitive tasks.
+            </p>
+
+            <span class="tag"
+                  data-en="Engineering"
+                  data-fa="مهندسی"
+                  data-es="Ingeniería">Engineering</span>
           </article>
+
           <article class="card">
             <div class="symbol">⌁</div>
-            <h3 data-en="Software & Research" data-fa="نرم‌افزار و پژوهش">Software &amp; Research</h3>
-            <p data-en="Technical prototypes, algorithmic thinking, applied experiments, and knowledge resources." data-fa="نمونه‌های فنی، تفکر الگوریتمی، آزمایش‌های کاربردی و منابع دانش.">Technical prototypes, algorithmic thinking, applied experiments, and knowledge resources.</p>
-            <span class="tag" data-en="R&D" data-fa="تحقیق و توسعه">R&amp;D</span>
+            <h3
+              data-en="Software &amp; Research"
+              data-fa="نرم‌افزار و پژوهش"
+              data-es="Software e investigación">Software &amp; Research</h3>
+
+            <p
+              data-en="Technical prototypes, algorithmic thinking, applied experiments, and knowledge resources."
+              data-fa="نمونه‌های فنی، تفکر الگوریتمی، آزمایش‌های کاربردی و منابع دانش."
+              data-es="Prototipos técnicos, pensamiento algorítmico, experimentos aplicados y recursos de conocimiento.">
+              Technical prototypes, algorithmic thinking, applied
+              experiments, and knowledge resources.
+            </p>
+
+            <span class="tag"
+                  data-en="R&amp;D"
+                  data-fa="تحقیق و توسعه"
+                  data-es="I+D">R&amp;D</span>
           </article>
         </div>
       </div>
@@ -190,25 +376,80 @@
     <section id="projects">
       <div class="container">
         <div class="section-heading">
-          <div class="eyebrow" data-en="Selected Work" data-fa="فعالیت‌های منتخب">Selected Work</div>
-          <h2 data-en="Projects in progress" data-fa="پروژه‌های در حال توسعه">Projects in progress</h2>
-          <p data-en="A growing portfolio of experiments and software concepts. Each project will be expanded with verified details and demonstrations." data-fa="مجموعه‌ای در حال گسترش از آزمایش‌ها و ایده‌های نرم‌افزاری؛ جزئیات تأییدشده و نمونه‌های عملی به‌تدریج اضافه خواهند شد.">A growing portfolio of experiments and software concepts. Each project will be expanded with verified details and demonstrations.</p>
+          <div class="eyebrow"
+               data-en="Selected Work"
+               data-fa="فعالیت‌های منتخب"
+               data-es="Proyectos destacados">Selected Work</div>
+
+          <h2
+            data-en="Projects in progress"
+            data-fa="پروژه‌های در حال توسعه"
+            data-es="Proyectos en desarrollo">Projects in progress</h2>
+
+          <p
+            data-en="A growing portfolio of experiments and software concepts. Each project will be expanded with verified details and demonstrations."
+            data-fa="مجموعه‌ای در حال گسترش از آزمایش‌ها و ایده‌های نرم‌افزاری؛ جزئیات تأییدشده و نمونه‌های عملی به‌تدریج اضافه خواهند شد."
+            data-es="Una cartera en crecimiento de experimentos e ideas de software que se ampliará con detalles verificados y demostraciones.">
+            A growing portfolio of experiments and software concepts.
+            Each project will be expanded with verified details and demonstrations.
+          </p>
         </div>
+
         <div class="grid">
           <article class="card">
-            <span class="tag">AI Agents</span>
+            <span class="tag"
+                  data-en="AI Agents"
+                  data-fa="عامل‌های هوشمند"
+                  data-es="Agentes de IA">AI Agents</span>
+
             <h3>WhatsApp AI Agent</h3>
-            <p data-en="An assistant concept for customer support, product information, and business workflows." data-fa="ایده دستیار هوشمند برای پشتیبانی مشتری، اطلاعات محصولات و گردش‌کارهای کسب‌وکار.">An assistant concept for customer support, product information, and business workflows.</p>
+
+            <p
+              data-en="An assistant concept for customer support, product information, and business workflows."
+              data-fa="ایده دستیار هوشمند برای پشتیبانی مشتری، اطلاعات محصولات و گردش‌کارهای کسب‌وکار."
+              data-es="Un asistente para atención al cliente, información de productos y procesos empresariales.">
+              An assistant concept for customer support, product information,
+              and business workflows.
+            </p>
           </article>
+
           <article class="card">
-            <span class="tag">Research</span>
-            <h3 data-en="Agent Reliability Experiment" data-fa="آزمایش قابلیت اطمینان عامل‌ها">Agent Reliability Experiment</h3>
-            <p data-en="A controlled 2,000-episode simulation comparing retry strategies across four fault scenarios." data-fa="شبیه‌سازی کنترل‌شده ۲۰۰۰ اپیزودی برای مقایسه راهبردهای تلاش مجدد در چهار سناریوی خطا.">A controlled 2,000-episode simulation comparing retry strategies across four fault scenarios.</p>
+            <span class="tag"
+                  data-en="Research"
+                  data-fa="پژوهش"
+                  data-es="Investigación">Research</span>
+
+            <h3
+              data-en="Agent Reliability Experiment"
+              data-fa="آزمایش قابلیت اطمینان عامل‌ها"
+              data-es="Experimento de fiabilidad de agentes">
+              Agent Reliability Experiment
+            </h3>
+
+            <p
+              data-en="A controlled 2,000-episode simulation comparing retry strategies across four fault scenarios."
+              data-fa="شبیه‌سازی کنترل‌شده ۲۰۰۰ اپیزودی برای مقایسه راهبردهای تلاش مجدد در چهار سناریوی خطا."
+              data-es="Una simulación controlada de 2.000 episodios que compara estrategias de reintento en cuatro escenarios de fallo.">
+              A controlled 2,000-episode simulation comparing retry strategies
+              across four fault scenarios.
+            </p>
           </article>
+
           <article class="card">
-            <span class="tag">Software</span>
+            <span class="tag"
+                  data-en="Software"
+                  data-fa="نرم‌افزار"
+                  data-es="Software">Software</span>
+
             <h3>ReWallet</h3>
-            <p data-en="A wallet recovery assistance concept focused on responsible assessment and clear user guidance." data-fa="مفهوم پلتفرم ارزیابی و راهنمایی مسئولانه برای کمک به بازیابی کیف پول.">A wallet recovery assistance concept focused on responsible assessment and clear user guidance.</p>
+
+            <p
+              data-en="A wallet recovery assistance concept focused on responsible assessment and clear user guidance."
+              data-fa="مفهوم پلتفرم ارزیابی و راهنمایی مسئولانه برای کمک به بازیابی کیف پول."
+              data-es="Un concepto de asistencia para la recuperación de carteras digitales, centrado en evaluaciones responsables y orientación clara.">
+              A wallet recovery assistance concept focused on responsible
+              assessment and clear user guidance.
+            </p>
           </article>
         </div>
       </div>
@@ -217,14 +458,48 @@
     <section id="research">
       <div class="container">
         <div class="section-heading">
-          <div class="eyebrow" data-en="Knowledge Library" data-fa="کتابخانه دانش">Knowledge Library</div>
-          <h2 data-en="Research, notes & learning" data-fa="پژوهش، یادداشت و یادگیری">Research, notes &amp; learning</h2>
-          <p data-en="A home for practical guides, technical articles, experiments, and books on AI agents and software engineering." data-fa="فضایی برای راهنماهای کاربردی، مقاله‌های فنی، آزمایش‌ها و کتاب‌های مرتبط با عامل‌های هوشمند و مهندسی نرم‌افزار.">A home for practical guides, technical articles, experiments, and books on AI agents and software engineering.</p>
+          <div class="eyebrow"
+               data-en="Knowledge Library"
+               data-fa="کتابخانه دانش"
+               data-es="Biblioteca de conocimiento">Knowledge Library</div>
+
+          <h2
+            data-en="Research, notes &amp; learning"
+            data-fa="پژوهش، یادداشت و یادگیری"
+            data-es="Investigación, notas y aprendizaje">
+            Research, notes &amp; learning
+          </h2>
+
+          <p
+            data-en="A home for practical guides, technical articles, experiments, and books on AI agents and software engineering."
+            data-fa="فضایی برای راهنماهای کاربردی، مقاله‌های فنی، آزمایش‌ها و کتاب‌های مرتبط با عامل‌های هوشمند و مهندسی نرم‌افزار."
+            data-es="Un espacio para guías prácticas, artículos técnicos, experimentos y libros sobre agentes de IA e ingeniería de software.">
+            A home for practical guides, technical articles, experiments,
+            and books on AI agents and software engineering.
+          </p>
         </div>
+
         <div class="card">
-          <h3 data-en="Featured research: Retry safety under uncertainty" data-fa="پژوهش منتخب: ایمنی تلاش مجدد در شرایط عدم قطعیت">Featured research: Retry safety under uncertainty</h3>
-          <p data-en="The current experiment studies how verification-before-retry can reduce duplicate simulated side effects and unsupported success claims. Results are from a controlled simulation, not production deployment." data-fa="آزمایش فعلی بررسی می‌کند که راستی‌آزمایی پیش از تلاش مجدد چگونه می‌تواند اثرات تکراری شبیه‌سازی‌شده و ادعاهای موفقیت تأییدنشده را کاهش دهد. نتایج مربوط به شبیه‌سازی کنترل‌شده‌اند، نه استقرار در محیط واقعی.">The current experiment studies how verification-before-retry can reduce duplicate simulated side effects and unsupported success claims. Results are from a controlled simulation, not production deployment.</p>
-          <span class="tag" data-en="Controlled simulation" data-fa="شبیه‌سازی کنترل‌شده">Controlled simulation</span>
+          <h3
+            data-en="Featured research: Retry safety under uncertainty"
+            data-fa="پژوهش منتخب: ایمنی تلاش مجدد در شرایط عدم قطعیت"
+            data-es="Investigación destacada: seguridad de los reintentos bajo incertidumbre">
+            Featured research: Retry safety under uncertainty
+          </h3>
+
+          <p
+            data-en="The current experiment studies how verification-before-retry can reduce duplicate simulated side effects and unsupported success claims. Results are from a controlled simulation, not production deployment."
+            data-fa="آزمایش فعلی بررسی می‌کند که راستی‌آزمایی پیش از تلاش مجدد چگونه می‌تواند اثرات تکراری شبیه‌سازی‌شده و ادعاهای موفقیت تأییدنشده را کاهش دهد. نتایج مربوط به شبیه‌سازی کنترل‌شده‌اند، نه استقرار در محیط واقعی."
+            data-es="El experimento estudia cómo verificar antes de reintentar puede reducir los efectos secundarios simulados duplicados y las afirmaciones de éxito no verificadas. Los resultados proceden de una simulación controlada, no de un despliegue en producción.">
+            The current experiment studies how verification-before-retry can
+            reduce duplicate simulated side effects and unsupported success claims.
+            Results are from a controlled simulation, not production deployment.
+          </p>
+
+          <span class="tag"
+                data-en="Controlled simulation"
+                data-fa="شبیه‌سازی کنترل‌شده"
+                data-es="Simulación controlada">Controlled simulation</span>
         </div>
       </div>
     </section>
@@ -232,11 +507,33 @@
     <section id="contact">
       <div class="container">
         <div class="contact-panel">
-          <div class="eyebrow" data-en="Let's Collaborate" data-fa="همکاری کنیم">Let's Collaborate</div>
-          <h2 data-en="Have an AI challenge to solve?" data-fa="برای حل یک مسئله هوش مصنوعی آماده‌اید؟">Have an AI challenge to solve?</h2>
-          <p class="muted" data-en="For reliability reviews, AI agent evaluation, research collaboration, or software projects, get in touch." data-fa="برای ارزیابی قابلیت اطمینان، بررسی عامل‌های هوشمند، همکاری پژوهشی یا پروژه‌های نرم‌افزاری با ما در ارتباط باشید.">For reliability reviews, AI agent evaluation, research collaboration, or software projects, get in touch.</p>
-          <a class="button" href="mailto:srmoradi@gmail.com" data-en="Email Avin AI Lab" data-fa="ارسال ایمیل به Avin AI Lab">Email Avin AI Lab</a>
-          <p class="muted" style="font-size:12px" data-en="Replace srmoradi@gmail.com in this file with your public business email before launch." data-fa="پیش از انتشار، عبارت srmoradi@gmail.com را با ایمیل کاری عمومی خودت جایگزین کن.">Replace srmoradi@gmail.com in this file with your public business email before launch.</p>
+          <div class="eyebrow"
+               data-en="Let's Collaborate"
+               data-fa="همکاری کنیم"
+               data-es="Colaboremos">Let's Collaborate</div>
+
+          <h2
+            data-en="Have an AI challenge to solve?"
+            data-fa="برای حل یک مسئله هوش مصنوعی آماده‌اید؟"
+            data-es="¿Tienes un reto de IA que resolver?">
+            Have an AI challenge to solve?
+          </h2>
+
+          <p class="muted"
+             data-en="For reliability reviews, AI agent evaluation, research collaboration, or software projects, get in touch."
+             data-fa="برای ارزیابی قابلیت اطمینان، بررسی عامل‌های هوشمند، همکاری پژوهشی یا پروژه‌های نرم‌افزاری با ما در ارتباط باشید."
+             data-es="Contáctanos para evaluaciones de fiabilidad, análisis de agentes de IA, colaboración en investigación o proyectos de software.">
+            For reliability reviews, AI agent evaluation, research collaboration,
+            or software projects, get in touch.
+          </p>
+
+          <a class="button"
+             href="mailto:srmoradi@gmail.com"
+             data-en="Email Avin AI Lab"
+             data-fa="ارسال ایمیل به Avin AI Lab"
+             data-es="Escribir a Avin AI Lab">
+            Email Avin AI Lab
+          </a>
         </div>
       </div>
     </section>
@@ -245,28 +542,47 @@
   <footer>
     <div class="container footer-row">
       <span>© 2026 Avin AI Lab</span>
-      <span data-en="Independent AI engineering & research." data-fa="مهندسی و پژوهش مستقل هوش مصنوعی.">Independent AI engineering &amp; research.</span>
+      <span
+        data-en="Independent AI engineering &amp; research."
+        data-fa="مهندسی و پژوهش مستقل هوش مصنوعی."
+        data-es="Ingeniería e investigación independiente en IA.">
+        Independent AI engineering &amp; research.
+      </span>
     </div>
   </footer>
 
   <script>
     const languageButton = document.getElementById("languageButton");
+    const supportedLanguages = ["en", "fa", "es"];
     let currentLanguage = "en";
 
     function setLanguage(language) {
       currentLanguage = language;
+
       document.documentElement.lang = language;
       document.documentElement.dir = language === "fa" ? "rtl" : "ltr";
 
-      document.querySelectorAll("[data-en][data-fa]").forEach((element) => {
+      document.querySelectorAll("[data-en][data-fa][data-es]").forEach((element) => {
         element.innerHTML = element.dataset[language];
       });
 
-      languageButton.textContent = language === "en" ? "فارسی" : "English";
+      languageButton.textContent =
+        language === "en" ? "فارسی" :
+        language === "fa" ? "Español" :
+        "English";
+
+      languageButton.setAttribute(
+        "aria-label",
+        "Change language; current language: " + language
+      );
     }
 
     languageButton.addEventListener("click", () => {
-      setLanguage(currentLanguage === "en" ? "fa" : "en");
+      const currentIndex = supportedLanguages.indexOf(currentLanguage);
+      const nextLanguage =
+        supportedLanguages[(currentIndex + 1) % supportedLanguages.length];
+
+      setLanguage(nextLanguage);
     });
 
     setLanguage("en");
