@@ -11,280 +11,564 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{--bg:#080d18;--panel:#101a2b;--panel2:#0c1423;--text:#edf5ff;--muted:#a7b7cc;--cyan:#53c7ff;--blue:#0284c7;--border:rgba(148,180,215,.19);--radius:18px;--font-latin:"Inter","Segoe UI",Arial,sans-serif;--font-persian:"Vazirmatn",Tahoma,Arial,sans-serif}
-    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:100px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
-    body{margin:0;background:radial-gradient(ellipse at 12% 0%,rgba(2,132,199,.16),transparent 34%),radial-gradient(ellipse at 95% 35%,rgba(83,199,255,.07),transparent 30%),var(--bg);color:var(--text);font-family:var(--font-latin);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-synthesis:none}
-    html[lang="fa"] body{font-family:var(--font-persian);line-height:1.95}a{color:inherit;text-decoration:none}a:focus-visible,button:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--cyan);outline-offset:4px}
-    .container{width:min(1120px,91%);margin:0 auto}header{position:sticky;top:0;z-index:10;background:rgba(8,13,24,.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
-    .nav{min-height:80px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{color:var(--text);font-size:1.22rem;font-weight:800;letter-spacing:-.7px;white-space:nowrap;line-height:1.3}.brand span{color:var(--cyan)}.nav-right{display:flex;align-items:center;justify-content:flex-end;gap:24px;flex-wrap:wrap}.nav-links{display:flex;align-items:center;gap:24px;flex-wrap:wrap}.nav-links a{color:var(--muted);font-size:.89rem;font-weight:500;transition:color .2s}.nav-links a:hover{color:var(--cyan)}
-    .language-select{color:var(--text);background:#111d30;border:1px solid rgba(83,199,255,.4);border-radius:10px;padding:9px 12px;min-width:145px;font-family:inherit;font-size:.87rem;font-weight:500;cursor:pointer}.language-select option{background:#101a2b;color:#edf5ff}
-    .hero{padding:112px 0 88px;text-align:center}.eyebrow{display:inline-block;border:1px solid rgba(83,199,255,.35);background:rgba(83,199,255,.07);color:var(--cyan);border-radius:999px;padding:6px 16px;font-size:.82rem;font-weight:600;letter-spacing:.15px;margin-bottom:26px}
-    h1{font-size:clamp(2.7rem,6.3vw,5rem);line-height:1.14;letter-spacing:-2.2px;font-weight:800;margin:0 auto 25px;max-width:920px}h1 span{display:inline;color:var(--cyan)}html[lang="fa"] h1{line-height:1.55;letter-spacing:0}.hero> .container>p{max-width:760px;margin:0 auto;color:var(--muted);font-size:1.08rem;line-height:1.9}
-    .actions{display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap;margin-top:34px}.button{display:inline-flex;justify-content:center;align-items:center;gap:8px;padding:12px 22px;min-height:48px;border-radius:11px;border:1px solid transparent;font-family:inherit;font-size:.91rem;font-weight:700;line-height:1.5;transition:transform .2s,background .2s,border-color .2s}.button:hover{transform:translateY(-2px)}.primary{background:linear-gradient(135deg,#53c7ff,#0284c7);color:#04111d}.secondary{border-color:var(--border);background:rgba(255,255,255,.025);color:var(--text)}.secondary:hover{border-color:rgba(83,199,255,.45)}
-    section.content-section{padding:66px 0}.section-heading{margin-bottom:32px}.section-heading h2{font-size:clamp(1.8rem,3.5vw,2.45rem);line-height:1.3;letter-spacing:-.9px;font-weight:700;margin:0 0 12px}html[lang="fa"] .section-heading h2{letter-spacing:0;line-height:1.6}.section-heading p{color:var(--muted);max-width:770px;margin:0;font-size:.98rem;line-height:1.9}
-    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.card{background:linear-gradient(145deg,rgba(16,26,43,.96),rgba(12,20,35,.96));border:1px solid var(--border);border-radius:var(--radius);padding:27px;min-width:0;transition:border-color .2s,transform .2s}.card:hover{border-color:rgba(83,199,255,.48);transform:translateY(-3px)}.card-icon{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:13px;color:var(--cyan);background:rgba(83,199,255,.09);border:1px solid rgba(83,199,255,.17);font-size:1.2rem;margin-bottom:19px}.card h3{font-size:1.12rem;font-weight:700;line-height:1.5;letter-spacing:-.25px;margin:0 0 12px;overflow-wrap:anywhere}.card p{color:var(--muted);margin:0 0 20px;font-size:.92rem;line-height:1.9}html[lang="fa"] .card p{line-height:2;font-size:.94rem}.tag{display:inline-block;color:var(--cyan);background:rgba(83,199,255,.07);border:1px solid rgba(83,199,255,.2);border-radius:999px;padding:4px 11px;font-size:.75rem;font-weight:600;line-height:1.6}
-    .research-panel,.contact-panel{border:1px solid var(--border);background:linear-gradient(120deg,rgba(16,26,43,.92),rgba(10,19,33,.92));border-radius:22px;padding:clamp(26px,5vw,44px)}.research-panel p,.contact-panel p{color:var(--muted);max-width:820px;font-size:.98rem;line-height:1.95}.research-panel .tag{margin-top:8px}.contact-panel{display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap}.contact-panel h2{margin:0;font-size:clamp(1.7rem,3.5vw,2.35rem);line-height:1.4;letter-spacing:-.7px;font-weight:700}html[lang="fa"] .contact-panel h2{letter-spacing:0;line-height:1.65}
-    footer{border-top:1px solid var(--border);padding:26px 0;color:var(--muted);font-size:.82rem;line-height:1.8}.footer-content{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}html[dir="rtl"] .nav,html[dir="rtl"] .nav-right,html[dir="rtl"] .nav-links,html[dir="rtl"] .footer-content{direction:rtl}html[dir="rtl"] .section-heading{text-align:right}
-    /* Floating multilingual chat */
-    .chat-launcher{position:fixed;right:24px;bottom:24px;z-index:1000;width:62px;height:62px;border:0;border-radius:50%;background:linear-gradient(135deg,#53c7ff,#0284c7);color:#04111d;font-size:27px;cursor:pointer;box-shadow:0 8px 30px rgba(2,132,199,.35);transition:transform .2s}.chat-launcher:hover{transform:translateY(-2px)}
-    .chat-panel{position:fixed;right:24px;bottom:98px;z-index:1000;display:none;flex-direction:column;width:min(390px,calc(100vw - 32px));height:min(540px,calc(100dvh - 125px));overflow:hidden;background:#101a2b;color:#edf5ff;border:1px solid rgba(83,199,255,.3);border-radius:18px;box-shadow:0 18px 60px rgba(0,0,0,.45);font-family:var(--font-latin)}.chat-panel.open{display:flex}.chat-header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px;background:#0c1423;border-bottom:1px solid var(--border)}.chat-title{font-weight:700}.chat-subtitle{color:var(--muted);font-size:.78rem;line-height:1.6}.chat-close{border:0;background:transparent;color:var(--text);font-size:25px;cursor:pointer}.chat-messages{flex:1;min-height:0;overflow-y:auto;display:flex;flex-direction:column;gap:12px;padding:16px}.chat-message{max-width:90%;padding:10px 13px;border-radius:13px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:.9rem;line-height:1.75}.chat-message.bot{align-self:flex-start;background:#18263b}.chat-message.user{align-self:flex-end;background:#075985;color:#fff}.chat-message.error{border:1px solid rgba(255,130,130,.4)}.chat-form{display:flex;align-items:flex-end;gap:8px;padding:12px;border-top:1px solid var(--border)}.chat-input{flex:1;min-width:0;min-height:44px;max-height:110px;resize:vertical;padding:10px 12px;border:1px solid var(--border);border-radius:11px;background:#080d18;color:var(--text);font:inherit;font-size:.9rem}.chat-send{min-height:44px;padding:0 15px;border:0;border-radius:10px;background:var(--blue);color:white;font:inherit;font-weight:700;cursor:pointer}.chat-send:disabled,.chat-input:disabled{opacity:.6;cursor:not-allowed}.chat-status{padding:0 14px 8px;color:var(--muted);font-size:.75rem}
-    html[dir="rtl"] .chat-panel{right:auto;left:24px}html[dir="rtl"] .chat-launcher{right:auto;left:24px}html[dir="rtl"] .chat-message,html[lang="fa"] .chat-form{font-family:var(--font-persian)}
-    @media(max-width:850px){.nav{padding:15px 0;align-items:flex-start}.nav-right{gap:14px}.nav-links{gap:15px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{padding:84px 0 68px}h1{letter-spacing:-1.4px}}
-    @media(max-width:600px){body{font-size:15px}.nav{flex-direction:column;align-items:stretch;gap:14px}.nav-right{justify-content:space-between;align-items:center}.nav-links{gap:12px}.nav-links a{font-size:.78rem}.language-select{min-width:125px;max-width:100%;padding:8px;font-size:.8rem}.grid{grid-template-columns:1fr;gap:16px}section.content-section{padding:47px 0}.hero{padding:66px 0 52px}.eyebrow{font-size:.74rem;margin-bottom:21px}h1{font-size:clamp(2.2rem,10vw,3.3rem);line-height:1.2;letter-spacing:-1.2px}html[lang="fa"] h1{line-height:1.65}.hero>.container>p{font-size:.96rem}.section-heading h2{letter-spacing:-.5px}.card{padding:23px}.contact-panel{align-items:flex-start;gap:18px}.footer-content{flex-direction:column;align-items:flex-start}.chat-panel{right:16px;bottom:88px;width:calc(100vw - 32px);height:min(520px,calc(100dvh - 110px))}.chat-launcher{right:16px;bottom:16px}html[dir="rtl"] .chat-panel{left:16px;right:auto}html[dir="rtl"] .chat-launcher{left:16px;right:auto}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important}}
+    :root {
+      --bg: #080d18;
+      --panel: #101a2b;
+      --text: #edf5ff;
+      --muted: #a7b7cc;
+      --cyan: #53c7ff;
+      --blue: #0284c7;
+      --border: rgba(148,180,215,.19);
+      --radius: 18px;
+      --latin: "Inter", "Segoe UI", Arial, sans-serif;
+      --persian: "Vazirmatn", Tahoma, Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(ellipse at 12% 0%, rgba(2,132,199,.16), transparent 34%),
+        radial-gradient(ellipse at 95% 35%, rgba(83,199,255,.07), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      font-family: var(--latin);
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    html[lang="fa"] body { font-family: var(--persian); line-height: 1.95; }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 4px;
+    }
+    .container { width: min(1120px, 91%); margin: 0 auto; }
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(8,13,24,.94);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav {
+      min-height: 80px; display: flex; align-items: center;
+      justify-content: space-between; gap: 24px;
+    }
+    .brand { font-size: 1.22rem; font-weight: 800; white-space: nowrap; }
+    .brand span { color: var(--cyan); }
+    .nav-right, .nav-links {
+      display: flex; align-items: center; justify-content: flex-end;
+      gap: 22px; flex-wrap: wrap;
+    }
+    .nav-links a { color: var(--muted); font-size: .89rem; }
+    .nav-links a:hover { color: var(--cyan); }
+    .language-select {
+      color: var(--text); background: #111d30;
+      border: 1px solid rgba(83,199,255,.4);
+      border-radius: 10px; padding: 9px 12px;
+      min-width: 140px; font: inherit; font-size: .85rem; cursor: pointer;
+    }
+    .language-select option { background: #101a2b; }
+    .hero { padding: 112px 0 88px; text-align: center; }
+    .eyebrow {
+      display: inline-block; color: var(--cyan);
+      background: rgba(83,199,255,.07);
+      border: 1px solid rgba(83,199,255,.35);
+      border-radius: 999px; padding: 6px 16px;
+      font-size: .82rem; margin-bottom: 26px;
+    }
+    h1 {
+      font-size: clamp(2.7rem, 6.3vw, 5rem);
+      line-height: 1.18; letter-spacing: -2px;
+      font-weight: 800; margin: 0 auto 25px; max-width: 920px;
+    }
+    h1 span { color: var(--cyan); }
+    html[lang="fa"] h1 { line-height: 1.6; letter-spacing: 0; }
+    .hero p {
+      max-width: 760px; margin: 0 auto;
+      color: var(--muted); font-size: 1.08rem; line-height: 1.95;
+    }
+    .actions {
+      display: flex; justify-content: center; gap: 14px;
+      flex-wrap: wrap; margin-top: 34px;
+    }
+    .button {
+      display: inline-flex; justify-content: center; align-items: center;
+      padding: 12px 22px; min-height: 48px; border-radius: 11px;
+      border: 1px solid transparent; font: inherit; font-size: .91rem;
+      font-weight: 700; cursor: pointer; transition: transform .2s;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .primary {
+      background: linear-gradient(135deg, #53c7ff, #0284c7);
+      color: #04111d;
+    }
+    .secondary { border-color: var(--border); background: rgba(255,255,255,.025); }
+    section.content-section { padding: 66px 0; }
+    .section-heading { margin-bottom: 32px; }
+    .section-heading h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.45rem);
+      line-height: 1.45; margin: 0 0 12px; font-weight: 700;
+    }
+    .section-heading p {
+      color: var(--muted); max-width: 770px;
+      margin: 0; font-size: .98rem; line-height: 1.95;
+    }
+    .grid {
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px;
+    }
+    .card {
+      background: linear-gradient(145deg, rgba(16,26,43,.96), rgba(12,20,35,.96));
+      border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 27px; min-width: 0; transition: border-color .2s, transform .2s;
+    }
+    .card:hover { border-color: rgba(83,199,255,.48); transform: translateY(-3px); }
+    .card-icon {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 46px; height: 46px; border-radius: 13px;
+      color: var(--cyan); background: rgba(83,199,255,.09);
+      border: 1px solid rgba(83,199,255,.17);
+      font-size: 1.2rem; margin-bottom: 19px;
+    }
+    .card h3 { font-size: 1.12rem; line-height: 1.55; margin: 0 0 12px; }
+    .card p { color: var(--muted); margin: 0 0 20px; font-size: .92rem; line-height: 1.95; }
+    .tag {
+      display: inline-block; color: var(--cyan);
+      background: rgba(83,199,255,.07);
+      border: 1px solid rgba(83,199,255,.2);
+      border-radius: 999px; padding: 4px 11px;
+      font-size: .75rem; line-height: 1.7;
+    }
+    .research-panel, .contact-panel {
+      border: 1px solid var(--border);
+      background: linear-gradient(120deg, rgba(16,26,43,.92), rgba(10,19,33,.92));
+      border-radius: 22px; padding: clamp(26px, 5vw, 44px);
+    }
+    .research-panel p, .contact-panel p {
+      color: var(--muted); max-width: 820px;
+      font-size: .98rem; line-height: 2;
+    }
+    .contact-panel {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 30px; flex-wrap: wrap;
+    }
+    .contact-panel h2 {
+      margin: 0; font-size: clamp(1.7rem, 3.5vw, 2.35rem);
+      line-height: 1.5;
+    }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 26px 0; color: var(--muted); font-size: .82rem;
+    }
+    .footer-content {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 14px; flex-wrap: wrap;
+    }
+
+    /* AI Chat */
+    .chat-launcher {
+      position: fixed; right: 24px; bottom: 24px; z-index: 1000;
+      width: 62px; height: 62px; border: 0; border-radius: 50%;
+      background: linear-gradient(135deg, #53c7ff, #0284c7);
+      color: #04111d; font-size: 27px; cursor: pointer;
+      box-shadow: 0 8px 30px rgba(2,132,199,.35);
+    }
+    .chat-panel {
+      position: fixed; right: 24px; bottom: 98px; z-index: 1000;
+      display: none; flex-direction: column;
+      width: min(390px, calc(100vw - 32px));
+      height: min(540px, calc(100vh - 125px));
+      overflow: hidden; background: #101a2b; color: var(--text);
+      border: 1px solid rgba(83,199,255,.3); border-radius: 18px;
+      box-shadow: 0 18px 60px rgba(0,0,0,.45); font-family: var(--latin);
+    }
+    .chat-panel.open { display: flex; }
+    .chat-header {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; padding: 16px; background: #0c1423;
+      border-bottom: 1px solid var(--border);
+    }
+    .chat-title { font-weight: 700; }
+    .chat-subtitle { color: var(--muted); font-size: .78rem; line-height: 1.7; }
+    .chat-close {
+      border: 0; background: transparent; color: var(--text);
+      font-size: 25px; cursor: pointer;
+    }
+    .chat-messages {
+      flex: 1; min-height: 0; overflow-y: auto;
+      display: flex; flex-direction: column; gap: 12px; padding: 16px;
+    }
+    .chat-message {
+      max-width: 90%; padding: 10px 13px; border-radius: 13px;
+      white-space: pre-wrap; overflow-wrap: anywhere;
+      font-size: .9rem; line-height: 1.85;
+    }
+    .chat-message.bot { align-self: flex-start; background: #18263b; }
+    .chat-message.user { align-self: flex-end; background: #075985; color: white; }
+    .chat-message.error { border: 1px solid rgba(255,130,130,.4); }
+    .chat-status { padding: 0 14px 8px; color: var(--muted); font-size: .75rem; }
+    .chat-form {
+      display: flex; align-items: flex-end; gap: 8px;
+      padding: 12px; border-top: 1px solid var(--border);
+    }
+    .chat-input {
+      flex: 1; min-width: 0; min-height: 44px; max-height: 110px;
+      resize: vertical; padding: 10px 12px;
+      border: 1px solid var(--border); border-radius: 11px;
+      background: #080d18; color: var(--text); font: inherit; font-size: .9rem;
+    }
+    .chat-send {
+      min-height: 44px; padding: 0 15px; border: 0;
+      border-radius: 10px; background: var(--blue);
+      color: white; font: inherit; font-weight: 700; cursor: pointer;
+    }
+    .chat-send:disabled, .chat-input:disabled { opacity: .6; cursor: wait; }
+    html[dir="rtl"] .nav, html[dir="rtl"] .nav-right,
+    html[dir="rtl"] .nav-links, html[dir="rtl"] .footer-content { direction: rtl; }
+    html[dir="rtl"] .section-heading { text-align: right; }
+    html[dir="rtl"] .chat-panel { right: auto; left: 24px; }
+    html[dir="rtl"] .chat-launcher { right: auto; left: 24px; }
+    html[lang="fa"] .chat-panel, html[lang="fa"] .chat-form,
+    html[lang="fa"] .chat-message { font-family: var(--persian); }
+    @media (max-width: 850px) {
+      .nav { padding: 15px 0; align-items: flex-start; }
+      .nav-right { gap: 14px; }
+      .nav-links { gap: 14px; }
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hero { padding: 84px 0 68px; }
+    }
+    @media (max-width: 600px) {
+      body { font-size: 15px; }
+      .nav { flex-direction: column; align-items: stretch; gap: 14px; }
+      .nav-right { justify-content: space-between; align-items: center; }
+      .nav-links { gap: 12px; }
+      .nav-links a { font-size: .78rem; }
+      .language-select { min-width: 120px; padding: 8px; font-size: .8rem; }
+      .grid { grid-template-columns: 1fr; gap: 16px; }
+      section.content-section { padding: 47px 0; }
+      .hero { padding: 66px 0 52px; }
+      h1 { font-size: clamp(2.2rem, 10vw, 3.3rem); letter-spacing: -1px; }
+      html[lang="fa"] h1 { line-height: 1.65; }
+      .card { padding: 23px; }
+      .contact-panel { align-items: flex-start; gap: 18px; }
+      .footer-content { flex-direction: column; align-items: flex-start; }
+      .chat-panel { right: 16px; bottom: 88px; width: calc(100vw - 32px); height: min(520px, calc(100vh - 110px)); }
+      .chat-launcher { right: 16px; bottom: 16px; }
+      html[dir="rtl"] .chat-panel { left: 16px; right: auto; }
+      html[dir="rtl"] .chat-launcher { left: 16px; right: auto; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
   </style>
 </head>
 <body>
-  <header><div class="container nav">
-    <a class="brand" href="#home" aria-label="Avin AI Lab home">Avin <span>AI Lab</span></a>
-    <div class="nav-right"><nav class="nav-links" aria-label="Main navigation">
-      <a href="#services" data-en="Services" data-fa="خدمات" data-es="Servicios">Services</a>
-      <a href="#projects" data-en="Projects" data-fa="پروژه‌ها" data-es="Proyectos">Projects</a>
-      <a href="#research" data-en="Research" data-fa="پژوهش" data-es="Investigación">Research</a>
-      <a href="#contact" data-en="Contact" data-fa="تماس" data-es="Contacto">Contact</a>
-    </nav><label><span hidden data-en="Choose language" data-fa="انتخاب زبان" data-es="Elegir idioma">Choose language</span>
-      <select id="languageSelect" class="language-select" aria-label="Choose language"><option value="en">🇬🇧 English</option><option value="fa">🇮🇷 فارسی</option><option value="es">🇪🇸 Español</option></select>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home">Avin <span>AI Lab</span></a>
+      <div class="nav-right">
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#services" data-en="Services" data-fa="خدمات" data-es="Servicios">Services</a>
+          <a href="#projects" data-en="Projects" data-fa="پروژه‌ها" data-es="Proyectos">Projects</a>
+          <a href="#research" data-en="Research" data-fa="پژوهش" data-es="Investigación">Research</a>
+          <a href="#contact" data-en="Contact" data-fa="تماس" data-es="Contacto">Contact</a>
+        </nav>
+        <select id="languageSelect" class="language-select" aria-label="Choose language">
+          <option value="en">🇬🇧 English</option>
+          <option value="fa">🇮🇷 فارسی</option>
+          <option value="es">🇪🇸 Español</option>
+        </select>
+      </div>
+    </div>
+  </header>
 
-="tag" data-en="Applied AI" data-fa="هوش مصنوعی کاربردی" data-es="IA aplicada">Applied AI</span></article>
-        <article class="card"><div class="card-icon" aria-hidden="true">⌘</div><h3 data-en="Software Engineering" data-fa="مهندسی نرم‌افزار" data-es="Ingeniería de software">Software Engineering</h3><p data-en="Thoughtful software architecture, API development, and dependable systems designed around real user needs." data-fa="معماری نرم‌افزار، توسعه API و طراحی سامانه‌های قابل‌اتکا بر اساس نیازهای واقعی کاربران." data-es="Arquitectura de software, desarrollo de API y sistemas fiables diseñados para necesidades reales.">Thoughtful software architecture, API development, and dependable systems designed around real user needs.</p><span class="tag" data-en="Engineering" data-fa="مهندسی" data-es="Ingeniería">Engineering</span></article>
-        <article class="card"><div class="card-icon" aria-hidden="true">⌁</div><h3 data-en="AI Reliability Research" data-fa="پژوهش در قابلیت اطمینان هوش مصنوعی" data-es="Investigación sobre fiabilidad de IA">AI Reliability Research</h3><p data-en="Exploring agent reliability, controlled recovery, human oversight, and trustworthy AI-assisted workflows." data-fa="بررسی قابلیت اطمینان عامل‌ها، بازیابی کنترل‌شده، نظارت انسانی و گردش‌کارهای قابل‌اعتماد مبتنی بر هوش مصنوعی." data-es="Investigación sobre fiabilidad de agentes, recuperación controlada, supervisión humana y flujos de trabajo confiables.">Exploring agent reliability, controlled recovery, human oversight, and trustworthy AI-assisted workflows.</p><span class="tag" data-en="Research" data-fa="پژوهش" data-es="Investigación">Research</span></article>
+  <main id="home">
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow" data-en="Independent AI & Software Lab" data-fa="آزمایشگاه مستقل هوش مصنوعی و نرم‌افزار" data-es="Laboratorio independiente de IA y software">Independent AI & Software Lab</div>
+        <h1 data-en="Building the Future with " data-fa="ساخت آینده با " data-es="Construyendo el futuro con ">Building the Future with <span>Intelligent Technology</span></h1>
+        <p data-en="Avin AI Lab explores practical artificial intelligence, software engineering, and research focused on reliable, useful technology." data-fa="Avin AI Lab در زمینه هوش مصنوعی کاربردی، مهندسی نرم‌افزار و پژوهش برای ساخت فناوری‌های مفید و قابل‌اعتماد فعالیت می‌کند." data-es="Avin AI Lab explora la inteligencia artificial aplicada, la ingeniería de software y la investigación para crear tecnología útil y fiable.">Avin AI Lab explores practical artificial intelligence, software engineering, and research focused on reliable, useful technology.</p>
+        <div class="actions">
+          <a class="button primary" href="#projects" data-en="Explore Projects" data-fa="مشاهده پروژه‌ها" data-es="Explorar proyectos">Explore Projects</a>
+          <a class="button secondary" href="#contact" data-en="Get in Touch" data-fa="ارتباط با ما" data-es="Contactar">Get in Touch</a>
+        </div>
       </div>
-    </div></section>
-    <section class="content-section" id="projects"><div class="container"><div class="section-heading"><h2 data-en="Selected Projects" data-fa="پروژه‌های منتخب" data-es="Proyectos destacados">Selected Projects</h2><p data-en="Independent projects focused on useful technology, responsible design, and practical outcomes." data-fa="پروژه‌های مستقل با تمرکز بر فناوری مفید، طراحی مسئولانه و نتایج کاربردی." data-es="Proyectos independientes centrados en tecnología útil, diseño responsable y resultados prácticos.">Independent projects focused on useful technology, responsible design, and practical outcomes.</p></div>
-      <div class="grid">
-        <article class="card"><div class="card-icon" aria-hidden="true">◉</div><h3 data-en="WhatsApp AI Agent" data-fa="عامل هوش مصنوعی واتس‌اپ" data-es="Agente de IA para WhatsApp">WhatsApp AI Agent</h3><p data-en="A business-oriented conversational assistant with customer support, product inquiries, order workflows, and human approval." data-fa="دستیار مکالمه‌محور کسب‌وکار با پشتیبانی مشتری، پاسخ‌گویی درباره محصولات، گردش‌کار سفارش و تأیید انسانی." data-es="Asistente conversacional para empresas con atención al cliente, consultas de productos, gestión de pedidos y aprobación humana.">A business-oriented conversational assistant with customer support, product inquiries, order workflows, and human approval.</p><span class="tag" data-en="AI Product" data-fa="محصول هوش مصنوعی" data-es="Producto de IA">AI Product</span></article>
-        <article class="card"><div class="card-icon" aria-hidden="true">◇</div><h3 data-en="Business DNA" data-fa="DNA کسب‌وکار" data-es="Business DNA">Business DNA</h3><p data-en="An evolving concept for modeling business knowledge, processes, and decision support through structured intelligence." data-fa="ایده‌ای در حال توسعه برای مدل‌سازی دانش کسب‌وکار، فرایندها و پشتیبانی از تصمیم‌گیری با هوشمندی ساختاریافته." data-es="Un concepto en evolución para modelar conocimiento empresarial, procesos y apoyo a decisiones mediante inteligencia estructurada.">An evolving concept for modeling business knowledge, processes, and decision support through structured intelligence.</p><span class="tag" data-en="Business Intelligence" data-fa="هوشمندی کسب‌وکار" data-es="Inteligencia empresarial">Business Intelligence</span></article>
-        <article class="card"><div class="card-icon" aria-hidden="true">⌘</div><h3 data-en="ReWallet" data-fa="ReWallet" data-es="ReWallet">ReWallet</h3><p data-en="A responsible wallet-recovery assistance concept designed to guide users through safer recovery workflows without requesting secret credentials." data-fa="مفهوم دستیار بازیابی مسئولانه کیف پول که کاربران را در فرایندهای امن‌تر راهنمایی می‌کند و اطلاعات محرمانه ورود را درخواست نمی‌کند." data-es="Concepto de asistencia responsable para recuperación de billeteras, sin solicitar credenciales secretas.">A responsible wallet-recovery assistance concept designed to guide users through safer recovery workflows without requesting secret credentials.</p><span class="tag" data-en="Security Assistance" data-fa="دستیار امنیتی" data-es="Asistencia de seguridad">Security Assistance</span></article>
+    </section>
+
+    <section class="content-section" id="services">
+      <div class="container">
+        <div class="section-heading">
+          <h2 data-en="What We Do" data-fa="حوزه‌های فعالیت ما" data-es="Qué hacemos">What We Do</h2>
+          <p data-en="From intelligent assistants to dependable software and applied research, we turn technical ideas into practical solutions." data-fa="از دستیارهای هوشمند تا نرم‌افزار قابل‌اتکا و پژوهش کاربردی، ایده‌های فنی را به راهکارهای عملی تبدیل می‌کنیم." data-es="Desde asistentes inteligentes hasta software fiable e investigación aplicada, convertimos ideas técnicas en soluciones prácticas.">From intelligent assistants to dependable software and applied research, we turn technical ideas into practical solutions.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">✦</div>
+            <h3 data-en="AI Agents & Automation" data-fa="عامل‌های هوش مصنوعی و خودکارسازی" data-es="Agentes de IA y automatización">AI Agents & Automation</h3>
+            <p data-en="Conversational AI assistants and practical automation for customer support, business workflows, and everyday tasks." data-fa="دستیارهای مکالمه‌محور و خودکارسازی کاربردی برای پشتیبانی مشتری، فرایندهای کسب‌وکار و کارهای روزمره." data-es="Asistentes conversacionales y automatización práctica para atención al cliente, procesos empresariales y tareas cotidianas.">Conversational AI assistants and practical automation for customer support, business workflows, and everyday tasks.</p>
+            <span class="tag" data-en="Applied AI" data-fa="هوش مصنوعی کاربردی" data-es="IA aplicada">Applied AI</span>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">⌘</div>
+            <h3 data-en="Software Engineering" data-fa="مهندسی نرم‌افزار" data-es="Ingeniería de software">Software Engineering</h3>
+            <p data-en="Thoughtful software architecture, API development, and dependable systems designed around real user needs." data-fa="معماری نرم‌افزار، توسعه API و طراحی سامانه‌های قابل‌اتکا بر اساس نیازهای واقعی کاربران." data-es="Arquitectura de software, desarrollo de API y sistemas fiables diseñados para necesidades reales.">Thoughtful software architecture, API development, and dependable systems designed around real user needs.</p>
+            <span class="tag" data-en="Engineering" data-fa="مهندسی" data-es="Ingeniería">Engineering</span>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">⌁</div>
+            <h3 data-en="AI Reliability Research" data-fa="پژوهش در قابلیت اطمینان هوش مصنوعی" data-es="Investigación sobre fiabilidad de IA">AI Reliability Research</h3>
+            <p data-en="Exploring agent reliability, controlled recovery, human oversight, and trustworthy AI-assisted workflows." data-fa="بررسی قابلیت اطمینان عامل‌ها، بازیابی کنترل‌شده، نظارت انسانی و گردش‌کارهای قابل‌اعتماد مبتنی بر هوش مصنوعی." data-es="Investigación sobre fiabilidad de agentes, recuperación controlada, supervisión humana y flujos de trabajo confiables.">Exploring agent reliability, controlled recovery, human oversight, and trustworthy AI-assisted workflows.</p>
+            <span class="tag" data-en="Research" data-fa="پژوهش" data-es="Investigación">Research</span>
+          </article>
+        </div>
       </div>
-    </div></section>
-    <section class="content-section" id="research"><div class="container"><div class="research-panel"><div class="section-heading"><h2 data-en="Research & Development" data-fa="پژوهش و توسعه" data-es="Investigación y desarrollo">Research & Development</h2></div>
-      <p data-en="Our research explores the reliability of AI agents in real-world workflows, including failure handling, transaction consistency, recovery strategies, latency, and human-in-the-loop governance. We aim to build systems that are not only capable, but also observable, testable, and accountable." data-fa="پژوهش ما قابلیت اطمینان عامل‌های هوش مصنوعی را در گردش‌کارهای واقعی بررسی می‌کند؛ از جمله مدیریت خطا، سازگاری تراکنش‌ها، راهبردهای بازیابی، تأخیر و حاکمیت با حضور انسان. هدف ما ساخت سامانه‌هایی است که علاوه بر توانمندی، قابل مشاهده، آزمون‌پذیر و پاسخ‌گو باشند." data-es="Nuestra investigación estudia la fiabilidad de agentes de IA en flujos reales: gestión de fallos, consistencia de transacciones, recuperación, latencia y supervisión humana. Buscamos sistemas capaces, observables, verificables y responsables.">Our research explores the reliability of AI agents in real-world workflows, including failure handling, transaction consistency, recovery strategies, latency, and human-in-the-loop governance. We aim to build systems that are not only capable, but also observable, testable, and accountable.</p>
-      <span class="tag" data-en="Independent Research" data-fa="پژوهش مستقل" data-es="Investigación independiente">Independent Research</span>
-    </div></div></section>
-    <section class="content-section" id="contact"><div class="container"><div class="contact-panel"><div><h2 data-en="Let's Build Something Meaningful" data-fa="بیایید چیزی ارزشمند بسازیم" data-es="Construyamos algo significativo">Let's Build Something Meaningful</h2><p data-en="Interested in AI agents, software engineering, or research collaboration? Get in touch." data-fa="به عامل‌های هوش مصنوعی، مهندسی نرم‌افزار یا همکاری پژوهشی علاقه‌مندید؟ با ما در ارتباط باشید." data-es="¿Te interesan los agentes de IA, la ingeniería de software o la colaboración en investigación? Escríbenos.">Interested in AI agents, software engineering, or research collaboration? Get in touch.</p></div>
-      <a class="button primary" href="mailto:srmoradi@gmail.com" data-en="Email Avin AI Lab" data-fa="ارسال ایمیل به Avin AI Lab" data-es="Enviar correo a Avin AI Lab">Email Avin AI Lab</a>
-    </div></div></section>
+    </section>
+
+    <section class="content-section" id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <h2 data-en="Selected Projects" data-fa="پروژه‌های منتخب" data-es="Proyectos destacados">Selected Projects</h2>
+          <p data-en="Independent projects focused on useful technology, responsible design, and practical outcomes." data-fa="پروژه‌های مستقل با تمرکز بر فناوری مفید، طراحی مسئولانه و نتایج کاربردی." data-es="Proyectos independientes centrados en tecnología útil, diseño responsable y resultados prácticos.">Independent projects focused on useful technology, responsible design, and practical outcomes.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">◉</div>
+            <h3>WhatsApp AI Agent</h3>
+            <p data-en="A business-oriented conversational assistant with customer support, product inquiries, order workflows, and human approval." data-fa="دستیار مکالمه‌محور کسب‌وکار با پشتیبانی مشتری، پاسخ‌گویی درباره محصولات، گردش‌کار سفارش و تأیید انسانی." data-es="Asistente conversacional para empresas con atención al cliente, consultas de productos, gestión de pedidos y aprobación humana.">A business-oriented conversational assistant with customer support, product inquiries, order workflows, and human approval.</p>
+            <span class="tag" data-en="AI Product" data-fa="محصول هوش مصنوعی" data-es="Producto de IA">AI Product</span>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">◇</div>
+            <h3>Business DNA</h3>
+            <p data-en="An evolving concept for modeling business knowledge, processes, and decision support through structured intelligence." data-fa="ایده‌ای در حال توسعه برای مدل‌سازی دانش کسب‌وکار، فرایندها و پشتیبانی از تصمیم‌گیری با هوشمندی ساختاریافته." data-es="Un concepto en evolución para modelar conocimiento empresarial, procesos y apoyo a decisiones mediante inteligencia estructurada.">An evolving concept for modeling business knowledge, processes, and decision support through structured intelligence.</p>
+            <span class="tag" data-en="Business Intelligence" data-fa="هوشمندی کسب‌وکار" data-es="Inteligencia empresarial">Business Intelligence</span>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">⌘</div>
+            <h3>ReWallet</h3>
+            <p data-en="A responsible wallet-recovery assistance concept designed to guide users through safer recovery workflows without requesting secret credentials." data-fa="مفهوم دستیار بازیابی مسئولانه کیف پول که کاربران را در فرایندهای امن‌تر راهنمایی می‌کند و اطلاعات محرمانه ورود را درخواست نمی‌کند." data-es="Concepto de asistencia responsable para recuperación de billeteras, sin solicitar credenciales secretas.">A responsible wallet-recovery assistance concept designed to guide users through safer recovery workflows without requesting secret credentials.</p>
+            <span class="tag" data-en="Security Assistance" data-fa="دستیار امنیتی" data-es="Asistencia de seguridad">Security Assistance</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="research">
+      <div class="container">
+        <div class="research-panel">
+          <div class="section-heading">
+            <h2 data-en="Research & Development" data-fa="پژوهش و توسعه" data-es="Investigación y desarrollo">Research & Development</h2>
+          </div>
+          <p data-en="Our research explores the reliability of AI agents in real-world workflows, including failure handling, transaction consistency, recovery strategies, latency, and human-in-the-loop governance. We aim to build systems that are not only capable, but also observable, testable, and accountable." data-fa="پژوهش ما قابلیت اطمینان عامل‌های هوش مصنوعی را در گردش‌کارهای واقعی بررسی می‌کند؛ از جمله مدیریت خطا، سازگاری تراکنش‌ها، راهبردهای بازیابی، تأخیر و نظارت انسانی. هدف ما ساخت سامانه‌هایی است که علاوه بر توانمندی، قابل مشاهده، آزمون‌پذیر و پاسخ‌گو باشند." data-es="Nuestra investigación estudia la fiabilidad de agentes de IA en flujos reales: gestión de fallos, consistencia de transacciones, recuperación, latencia y supervisión humana. Buscamos sistemas capaces, observables, verificables y responsables.">Our research explores the reliability of AI agents in real-world workflows, including failure handling, transaction consistency, recovery strategies, latency, and human-in-the-loop governance. We aim to build systems that are not only capable, but also observable, testable, and accountable.</p>
+          <span class="tag" data-en="Independent Research" data-fa="پژوهش مستقل" data-es="Investigación independiente">Independent Research</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="contact">
+      <div class="container">
+        <div class="contact-panel">
+          <div>
+            <h2 data-en="Let's Build Something Meaningful" data-fa="بیایید چیزی ارزشمند بسازیم" data-es="Construyamos algo significativo">Let's Build Something Meaningful</h2>
+            <p data-en="Interested in AI agents, software engineering, or research collaboration? Get in touch." data-fa="به عامل‌های هوش مصنوعی، مهندسی نرم‌افزار یا همکاری پژوهشی علاقه‌مندید؟ با ما در ارتباط باشید." data-es="¿Te interesan los agentes de IA, la ingeniería de software o la colaboración en investigación? Escríbenos.">Interested in AI agents, software engineering, or research collaboration? Get in touch.</p>
+          </div>
+          <a class="button primary" href="mailto:srmoradi@gmail.com" data-en="Email Avin AI Lab" data-fa="ارسال ایمیل به Avin AI Lab" data-es="Enviar correo a Avin AI Lab">Email Avin AI Lab</a>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer><div class="container footer-content"><span>© 2026 Avin AI Lab — <span data-en="Responsible AI & Engineering" data-fa="هوش مصنوعی و مهندسی مسئولانه" data-es="IA e ingeniería responsables">Responsible AI & Engineering</span></span><a href="mailto:srmoradi@gmail.com">srmoradi@gmail.com</a></div></footer>
-  <!-- AI chat assistant -->
+
+  <footer>
+    <div class="container footer-content">
+      <span>© 2026 Avin AI Lab — <span data-en="Responsible AI & Engineering" data-fa="هوش مصنوعی و مهندسی مسئولانه" data-es="IA e ingeniería responsables">Responsible AI & Engineering</span></span>
+      <a href="mailto:srmoradi@gmail.com">srmoradi@gmail.com</a>
+    </div>
+  </footer>
+
   <button class="chat-launcher" id="chatLauncher" type="button" aria-label="Open AI chat" aria-controls="chatPanel" aria-expanded="false">✦</button>
+
   <section class="chat-panel" id="chatPanel" role="dialog" aria-label="Avin AI Lab assistant" aria-modal="false">
-    <div class="chat-header"><div><div class="chat-title" data-en="Avin AI Assistant" data-fa="دستیار هوش مصنوعی آوین" data-es="Asistente de IA Avin">Avin AI Assistant</div><div class="chat-subtitle" data-en="Ask me about our projects and AI" data-fa="درباره پروژه‌ها و هوش مصنوعی بپرسید" data-es="Pregunta sobre nuestros proyectos e IA">Ask me about our projects and AI</div></div><button class="chat-close" id="chatClose" type="button" aria-label="Close chat">×</button></div>
-    <div class="chat-messages" id="chatMessages" aria-live="polite"><div class="chat-message bot" data-en="Hello! I’m the Avin AI Lab assistant. How can I help you?" data-fa="سلام! من دستیار Avin AI Lab هستم. چطور می‌توانم کمک کنم؟" data-es="¡Hola! Soy el asistente de Avin AI Lab. ¿Cómo puedo ayudarte?">Hello! I’m the Avin AI Lab assistant. How can I help you?</div></div>
+    <div class="chat-header">
+      <div>
+        <div class="chat-title" data-en="Avin AI Assistant" data-fa="دستیار هوش مصنوعی آوین" data-es="Asistente de IA Avin">Avin AI Assistant</div>
+        <div class="chat-subtitle" data-en="Ask me about our projects and AI" data-fa="درباره پروژه‌ها و هوش مصنوعی بپرسید" data-es="Pregunta sobre nuestros proyectos e IA">Ask me about our projects and AI</div>
+      </div>
+      <button class="chat-close" id="chatClose" type="button" aria-label="Close chat">×</button>
+    </div>
+    <div class="chat-messages" id="chatMessages" aria-live="polite">
+      <div class="chat-message bot" id="chatGreeting" data-en="Hello! I’m the Avin AI Lab assistant. How can I help you?" data-fa="سلام! من دستیار Avin AI Lab هستم. چطور می‌توانم کمک کنم؟" data-es="¡Hola! Soy el asistente de Avin AI Lab. ¿Cómo puedo ayudarte?">Hello! I’m the Avin AI Lab assistant. How can I help you?</div>
+    </div>
     <div class="chat-status" id="chatStatus" role="status"></div>
-    <form class="chat-form" id="chatForm"><textarea class="chat-input" id="chatInput" rows="1" maxlength="4000" required placeholder="Type your message…" data-placeholder-en="Type your message…" data-placeholder-fa="پیام خود را بنویسید…" data-placeholder-es="Escribe tu mensaje…" aria-label="Your message"></textarea><button class="chat-send" id="chatSend" type="submit" data-en="Send" data-fa="ارسال" data-es="Enviar">Send</button></form>
+    <form class="chat-form" id="chatForm">
+      <textarea class="chat-input" id="chatInput" rows="1" maxlength="4000" required placeholder="Type your message…" aria-label="Your message"></textarea>
+      <button class="chat-send" id="chatSend" type="submit" data-en="Send" data-fa="ارسال" data-es="Enviar">Send</button>
+    </form>
   </section>
 
   <script>
     (() => {
       "use strict";
 
-      const languageSelect = document.getElementById("languageSelect");
-      const chatLauncher = document.getElementById("chatLauncher");
-      const chatPanel = document.getElementById("chatPanel");
-      const chatClose = document.getElementById("chatClose");
-      const chatForm = document.getElementById("chatForm");
-      const chatInput = document.getElementById("chatInput");
-      const chatSend = document.getElementById("chatSend");
-      const chatMessages = document.getElementById("chatMessages");
-      const chatStatus = document.getElementById("chatStatus");
-
       const API_URL = "https://ai.avinkafe.ir/chat";
-      const MAX_MESSAGE_LENGTH = 4000;
-
-      const translations = {
+      const languages = {
         en: {
           title: "Avin AI Lab | AI, Research & Innovation",
           description: "Avin AI Lab — AI agents, software engineering, and independent AI reliability research.",
-          openChat: "Open AI chat",
-          closeChat: "Close chat",
-          assistant: "Avin AI Assistant",
-          subtitle: "Ask me about our projects and AI",
-          placeholder: "Type your message…",
-          send: "Send",
+          open: "Open AI chat", close: "Close chat",
+          placeholder: "Type your message…", send: "Send",
           greeting: "Hello! I’m the Avin AI Lab assistant. How can I help you?",
-          waiting: "Thinking…",
-          error: "Sorry, I couldn’t connect right now. Please try again shortly.",
+          thinking: "Thinking…",
+          error: "Sorry, I couldn’t get a response. Please try again shortly.",
           empty: "Please enter a message.",
-          tooLong: "Your message is too long. Please keep it under 4000 characters.",
-          status: "Connecting to the AI assistant…"
+          long: "Please keep your message under 4,000 characters."
         },
         fa: {
-          title: "آزمایشگاه هوش مصنوعی آوین | هوش مصنوعی، پژوهش و نوآوری",
+          title: "آوین ای‌آی لب | هوش مصنوعی، پژوهش و نوآوری",
           description: "Avin AI Lab؛ عامل‌های هوش مصنوعی، مهندسی نرم‌افزار و پژوهش مستقل در قابلیت اطمینان هوش مصنوعی.",
-          openChat: "باز کردن گفت‌وگوی هوش مصنوعی",
-          closeChat: "بستن گفت‌وگو",
-          assistant: "دستیار هوش مصنوعی آوین",
-          subtitle: "درباره پروژه‌ها و هوش مصنوعی بپرسید",
-          placeholder: "پیام خود را بنویسید…",
-          send: "ارسال",
+          open: "باز کردن گفت‌وگوی هوش مصنوعی", close: "بستن گفت‌وگو",
+          placeholder: "پیام خود را بنویسید…", send: "ارسال",
           greeting: "سلام! من دستیار Avin AI Lab هستم. چطور می‌توانم کمک کنم؟",
-          waiting: "در حال فکر کردن…",
-          error: "متأسفم، در حال حاضر اتصال برقرار نشد. لطفاً کمی بعد دوباره تلاش کنید.",
+          thinking: "در حال پاسخ‌گویی…",
+          error: "متأسفم، دریافت پاسخ ممکن نشد. لطفاً کمی بعد دوباره تلاش کنید.",
           empty: "لطفاً پیام خود را وارد کنید.",
-          tooLong: "پیام شما بیش از حد طولانی است. لطفاً آن را به کمتر از ۴۰۰۰ نویسه محدود کنید.",
-          status: "در حال اتصال به دستیار هوش مصنوعی…"
+          long: "لطفاً پیام را به کمتر از ۴۰۰۰ نویسه محدود کنید."
         },
         es: {
           title: "Avin AI Lab | IA, investigación e innovación",
-          description: "Avin AI Lab — agentes de IA, ingeniería de software e investigación independiente sobre fiabilidad de IA.",
-          openChat: "Abrir chat de IA",
-          closeChat: "Cerrar chat",
-          assistant: "Asistente de IA Avin",
-          subtitle: "Pregunta sobre nuestros proyectos e IA",
-          placeholder: "Escribe tu mensaje…",
-          send: "Enviar",
+          description: "Avin AI Lab — agentes de IA, ingeniería de software e investigación sobre fiabilidad de IA.",
+          open: "Abrir chat de IA", close: "Cerrar chat",
+          placeholder: "Escribe tu mensaje…", send: "Enviar",
           greeting: "¡Hola! Soy el asistente de Avin AI Lab. ¿Cómo puedo ayudarte?",
-          waiting: "Pensando…",
-          error: "No pude conectarme en este momento. Inténtalo de nuevo en unos instantes.",
+          thinking: "Pensando…",
+          error: "No pude obtener una respuesta. Inténtalo de nuevo en unos instantes.",
           empty: "Por favor, escribe un mensaje.",
-          tooLong: "El mensaje es demasiado largo. Limítalo a menos de 4000 caracteres.",
-          status: "Conectando con el asistente de IA…"
+          long: "Limita el mensaje a menos de 4000 caracteres."
         }
       };
 
-      let currentLanguage = "en";
-      let isSending = false;
+      const languageSelect = document.getElementById("languageSelect");
+      const launcher = document.getElementById("chatLauncher");
+      const panel = document.getElementById("chatPanel");
+      const closeButton = document.getElementById("chatClose");
+      const form = document.getElementById("chatForm");
+      const input = document.getElementById("chatInput");
+      const sendButton = document.getElementById("chatSend");
+      const messages = document.getElementById("chatMessages");
+      const status = document.getElementById("chatStatus");
+      const greeting = document.getElementById("chatGreeting");
 
-      function getLanguage() {
-        return translations[currentLanguage] || translations.en;
+      let language = "en";
+      let busy = false;
+
+      function text(key) {
+        return languages[language][key] || languages.en[key] || "";
       }
 
-      function applyLanguage(language) {
-        currentLanguage = translations[language] ? language : "en";
+      function applyLanguage(nextLanguage) {
+        language = languages[nextLanguage] ? nextLanguage : "en";
+        const rtl = language === "fa";
 
-        const rtl = currentLanguage === "fa";
-        document.documentElement.lang = currentLanguage;
+        document.documentElement.lang = language;
         document.documentElement.dir = rtl ? "rtl" : "ltr";
-        document.title = getLanguage().title;
+        document.title = text("title");
 
         const description = document.querySelector('meta[name="description"]');
-        if (description) {
-          description.setAttribute("content", getLanguage().description);
-        }
+        if (description) description.setAttribute("content", text("description"));
 
-        document.querySelectorAll("[data-" + currentLanguage + "]").forEach((element) => {
-          element.textContent = element.getAttribute("data-" + currentLanguage);
+        document.querySelectorAll("[data-en][data-fa][data-es]").forEach((element) => {
+          element.textContent = element.getAttribute("data-" + language);
         });
 
-        chatLauncher.setAttribute("aria-label", getLanguage().openChat);
-        chatClose.setAttribute("aria-label", getLanguage().closeChat);
-        chatInput.placeholder = getLanguage().placeholder;
-        chatInput.setAttribute("aria-label", getLanguage().placeholder);
+        launcher.setAttribute("aria-label", text("open"));
+        closeButton.setAttribute("aria-label", text("close"));
+        input.placeholder = text("placeholder");
+        input.setAttribute("aria-label", text("placeholder"));
+        sendButton.textContent = text("send");
+        greeting.textContent = text("greeting");
 
-        document.querySelectorAll("#chatMessages .chat-message.bot[data-greeting]").forEach((element) => {
-          element.textContent = getLanguage().greeting;
-        });
-
-        if (chatStatus.dataset.state === "waiting") {
-          chatStatus.textContent = getLanguage().waiting;
-        }
+        if (status.dataset.busy === "true") status.textContent = text("thinking");
 
         try {
-          localStorage.setItem("avinai-language", currentLanguage);
-        } catch (_) {
-          // Language selection still works if browser storage is unavailable.
-        }
+          localStorage.setItem("avinai-language", language);
+        } catch (_) {}
       }
 
-      function addMessage(text, type, options = {}) {
-        const message = document.createElement("div");
-        message.className = "chat-message " + type;
-        message.textContent = text;
-
-        if (options.greeting) {
-          message.dataset.greeting = "true";
-        }
-
-        chatMessages.appendChild(message);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-        return message;
+      function addMessage(messageText, type) {
+        const element = document.createElement("div");
+        element.className = "chat-message " + type;
+        element.textContent = messageText;
+        messages.appendChild(element);
+        messages.scrollTop = messages.scrollHeight;
+        return element;
       }
 
-      function setStatus(text, state = "") {
-        chatStatus.textContent = text;
-        chatStatus.dataset.state = state;
+      function setChatOpen(open) {
+        panel.classList.toggle("open", open);
+        launcher.setAttribute("aria-expanded", String(open));
+        if (open) input.focus();
       }
 
-      function openChat() {
-        chatPanel.classList.add("open");
-        chatLauncher.setAttribute("aria-expanded", "true");
-        chatInput.focus();
-      }
-
-      function closeChat() {
-        chatPanel.classList.remove("open");
-        chatLauncher.setAttribute("aria-expanded", "false");
-        chatLauncher.focus();
-      }
-
-      chatLauncher.addEventListener("click", () => {
-        if (chatPanel.classList.contains("open")) {
-          closeChat();
-        } else {
-          openChat();
-        }
+      launcher.addEventListener("click", () => {
+        setChatOpen(!panel.classList.contains("open"));
       });
 
-      chatClose.addEventListener("click", closeChat);
+      closeButton.addEventListener("click", () => {
+        setChatOpen(false);
+        launcher.focus();
+      });
 
       document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape" && chatPanel.classList.contains("open")) {
-          closeChat();
+        if (event.key === "Escape" && panel.classList.contains("open")) {
+          setChatOpen(false);
+          launcher.focus();
         }
       });
 
-      languageSelect.addEventListener("change", (event) => {
-        applyLanguage(event.target.value);
+      languageSelect.addEventListener("change", () => {
+        applyLanguage(languageSelect.value);
       });
 
-      chatForm.addEventListener("submit", async (event) => {
+      form.addEventListener("submit", async (event) => {
         event.preventDefault();
+        if (busy) return;
 
-        if (isSending) return;
-
-        const message = chatInput.value.trim();
+        const message = input.value.trim();
 
         if (!message) {
-          setStatus(getLanguage().empty);
-          chatInput.focus();
+          status.textContent = text("empty");
+          input.focus();
           return;
         }
 
-        if (message.length > MAX_MESSAGE_LENGTH) {
-          setStatus(getLanguage().tooLong);
+        if (message.length > 4000) {
+          status.textContent = text("long");
           return;
         }
 
         addMessage(message, "user");
-        chatInput.value = "";
-        isSending = true;
-        chatInput.disabled = true;
-        chatSend.disabled = true;
-        setStatus(getLanguage().waiting, "waiting");
+        input.value = "";
+        busy = true;
+        input.disabled = true;
+        sendButton.disabled = true;
+        status.dataset.busy = "true";
+        status.textContent = text("thinking");
+
+        const replyElement = addMessage(text("thinking"), "bot");
 
         try {
           const response = await fetch(API_URL, {
             method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
               message: message,
-              language: currentLanguage
+              language: language
             })
           });
 
-          let data;
-
-          try {
-            data = await response.json();
-          } catch (_) {
-            throw new Error("Invalid server response");
-          }
+          const data = await response.json();
 
           if (!response.ok) {
-            throw new Error("Chat API returned HTTP " + response.status);
+            throw new Error("HTTP " + response.status);
           }
 
           const reply =
@@ -292,49 +576,32 @@
             typeof data.response === "string" ? data.response.trim() :
             typeof data.message === "string" ? data.message.trim() : "";
 
-          if (!reply) {
-            throw new Error("The server returned an empty response");
-          }
+          if (!reply) throw new Error("Empty reply");
 
-          addMessage(reply, "bot");
-          setStatus("");
-
+          replyElement.textContent = reply;
         } catch (error) {
           console.error("Avin AI chat error:", error);
-          addMessage(getLanguage().error, "bot error");
-          setStatus("");
-
+          replyElement.textContent = text("error");
+          replyElement.classList.add("error");
         } finally {
-          isSending = false;
-          chatInput.disabled = false;
-          chatSend.disabled = false;
-          chatInput.focus();
+          busy = false;
+          input.disabled = false;
+          sendButton.disabled = false;
+          status.textContent = "";
+          delete status.dataset.busy;
+          messages.scrollTop = messages.scrollHeight;
+          input.focus();
         }
       });
 
-      function initialize() {
-        let savedLanguage = "en";
+      let savedLanguage = "en";
+      try {
+        const stored = localStorage.getItem("avinai-language");
+        if (stored && languages[stored]) savedLanguage = stored;
+      } catch (_) {}
 
-        try {
-          const saved = localStorage.getItem("avinai-language");
-          if (saved && translations[saved]) {
-            savedLanguage = saved;
-          }
-        } catch (_) {
-          // Use English if browser storage is unavailable.
-        }
-
-        languageSelect.value = savedLanguage;
-        applyLanguage(savedLanguage);
-
-        const greeting = chatMessages.querySelector(".chat-message.bot");
-        if (greeting) {
-          greeting.dataset.greeting = "true";
-          greeting.textContent = getLanguage().greeting;
-        }
-      }
-
-      initialize();
+      languageSelect.value = savedLanguage;
+      applyLanguage(savedLanguage);
     })();
   </script>
 </body>
